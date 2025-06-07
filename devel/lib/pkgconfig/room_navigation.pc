@@ -1,0 +1,8 @@
+prefix=/home/ubuntuber/ros_se/devel
+
+Name: room_navigation
+Description: Description of room_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

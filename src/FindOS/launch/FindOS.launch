@@ -1,0 +1,40 @@
+<launch>
+
+    <include file="$(find robot_arm)/launch/controller_manager.launch"/>
+    <include file="$(find robot_arm)/launch/start_joints_controller.launch"/>
+    <include file="$(find turtlebot_navigation)/launch/amcl_demo.launch"/>
+    <!-- <include file="$(find FindOS)/launch/amcl.launch"/> -->
+    <!--  -->
+    <!-- 启动功能类节点 -->
+    <!-- <group ns="freenect">
+    <include file="$(find freenect_launch)/launch/examples/freenect-registered-xyzrgb.launch"/>
+    </group> -->
+
+        
+        <node name="navigate_agent" pkg="FindOS" type="navigate.py" output="screen" launch-prefix="gnome-terminal --window --"/>
+
+    <group ns="arm">
+        <node name="robot_arm_agent" pkg="FindOS" type="robot_arm.py" output="screen" launch-prefix="gnome-terminal --window --"/>
+    </group>
+    <group ns="detector">
+        <node name="yolov11_realtime_detector" pkg="FindOS" type="realtime_capture.py" output="screen" launch-prefix="gnome-terminal --window --"/>
+    </group>
+    <group ns="voice">
+        <node name="voice_control" pkg="FindOS" type="voice.py" output="screen" launch-prefix="gnome-terminal --window --"/>
+    </group>
+    <!-- 启动主线程节点 -->
+    <group ns="main">
+        <node name="FindOS" pkg="FindOS" type="idle.py" output="screen" launch-prefix="gnome-terminal --window --"/>
+    </group>
+
+    <group ns="camera">
+    <node name="detection_result_view" pkg="image_view" type="image_view" output="screen">
+        <remap from="image" to="/detection_result" />
+    </node>
+
+    <node name="rgb_image_view" pkg="image_view" type="image_view" output="screen">
+        <remap from="image" to="/camera/rgb/image_raw" />
+    </node>
+    </group>
+    
+</launch>

@@ -68,18 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -94,7 +82,7 @@ install/fast: preinstall/fast
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"main\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -135,6 +123,18 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/ubuntuber/ros_se/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntuber/ros_se/build/CMakeFiles /home/ubuntuber/ros_se/build/turtlebot_apps/turtlebot_follower/CMakeFiles/progress.marks
@@ -168,94 +168,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
+turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/rule:
+	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/rule
+.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/rule
 
 # Convenience name for target.
-visualization_msgs_generate_messages_cpp: turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
+turtlebot_follower: turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/rule
 
-.PHONY : visualization_msgs_generate_messages_cpp
+.PHONY : turtlebot_follower
 
 # fast build rule for target.
-visualization_msgs_generate_messages_cpp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build
-.PHONY : visualization_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-visualization_msgs_generate_messages_lisp: turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : visualization_msgs_generate_messages_lisp
-
-# fast build rule for target.
-visualization_msgs_generate_messages_lisp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build
-.PHONY : visualization_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_nodejs: turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-visualization_msgs_generate_messages_eus: turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
-
-.PHONY : visualization_msgs_generate_messages_eus
-
-# fast build rule for target.
-visualization_msgs_generate_messages_eus/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build
-.PHONY : visualization_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-visualization_msgs_generate_messages_nodejs: turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : visualization_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-visualization_msgs_generate_messages_nodejs/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build
-.PHONY : visualization_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-visualization_msgs_generate_messages_py: turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-
-.PHONY : visualization_msgs_generate_messages_py
-
-# fast build rule for target.
-visualization_msgs_generate_messages_py/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
-.PHONY : visualization_msgs_generate_messages_py/fast
+turtlebot_follower/fast:
+	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/build
+.PHONY : turtlebot_follower/fast
 
 # Convenience name for target.
 turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower_gencfg.dir/rule:
@@ -271,96 +196,6 @@ turtlebot_follower_gencfg: turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebo
 turtlebot_follower_gencfg/fast:
 	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower_gencfg.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower_gencfg.dir/build
 .PHONY : turtlebot_follower_gencfg/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/rule
-.PHONY : turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/rule
-
-# Convenience name for target.
-turtlebot_follower: turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/rule
-
-.PHONY : turtlebot_follower
-
-# fast build rule for target.
-turtlebot_follower/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/build.make turtlebot_apps/turtlebot_follower/CMakeFiles/turtlebot_follower.dir/build
-.PHONY : turtlebot_follower/fast
 
 src/follower.o: src/follower.cpp.o
 
@@ -396,25 +231,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... visualization_msgs_generate_messages_cpp"
-	@echo "... visualization_msgs_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... visualization_msgs_generate_messages_eus"
-	@echo "... visualization_msgs_generate_messages_nodejs"
-	@echo "... visualization_msgs_generate_messages_py"
-	@echo "... turtlebot_follower_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... test"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_gencfg"
 	@echo "... turtlebot_follower"
+	@echo "... install/local"
+	@echo "... turtlebot_follower_gencfg"
 	@echo "... src/follower.o"
 	@echo "... src/follower.i"
 	@echo "... src/follower.s"

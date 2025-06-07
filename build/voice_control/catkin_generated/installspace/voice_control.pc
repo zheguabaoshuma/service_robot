@@ -1,0 +1,8 @@
+prefix=/home/ubuntuber/ros_se/install
+
+Name: voice_control
+Description: Description of voice_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

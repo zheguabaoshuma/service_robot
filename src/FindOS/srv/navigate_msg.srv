@@ -1,0 +1,3 @@
+string target  # 请求消息
+---
+string result  # 响应消息

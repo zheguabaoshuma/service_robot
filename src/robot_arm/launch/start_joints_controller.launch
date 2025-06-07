@@ -1,0 +1,15 @@
+<launch>
+
+    <rosparam file="$(find robot_arm)/config/tilt.yaml" command="load"/>
+        <node name="tilt_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py" args="--manager=dxl_manager --port pan_tilt_port tilt_controller" output="screen"/>
+
+    <rosparam file="$(find robot_arm)/config/joint1.yaml" command="load"/>
+        <node name="joint1_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py" args="--manager=dxl_manager --port pan_tilt_port joint1_controller" output="screen"/>
+    <rosparam file="$(find robot_arm)/config/joint2.yaml" command="load"/>
+        <node name="joint2_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py" args="--manager=dxl_manager --port pan_tilt_port joint2_controller" output="screen"/>
+    <rosparam file="$(find robot_arm)/config/joint3.yaml" command="load"/>
+        <node name="joint3_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py" args="--manager=dxl_manager --port pan_tilt_port joint3_controller" output="screen"/>
+    <rosparam file="$(find robot_arm)/config/joint4.yaml" command="load"/>
+        <node name="joint4_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py" args="--manager=dxl_manager --port pan_tilt_port joint4_controller" output="screen"/>
+       
+</launch>

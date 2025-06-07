@@ -80,28 +80,6 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -113,15 +91,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target test
+test/fast: test
 
-.PHONY : list_install_components/fast
+.PHONY : test/fast
 
 # Special rule for the target install
 install: preinstall
@@ -134,6 +113,27 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"main\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -182,231 +182,6 @@ kobuki_bumper2pc_nodelet/fast:
 	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/kobuki_bumper2pc_nodelet.dir/build.make kobuki_bumper2pc/CMakeFiles/kobuki_bumper2pc_nodelet.dir/build
 .PHONY : kobuki_bumper2pc_nodelet/fast
 
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_cpp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_cpp: kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-.PHONY : nodelet_generate_messages_cpp
-
-# fast build rule for target.
-nodelet_generate_messages_cpp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_cpp.dir/build
-.PHONY : nodelet_generate_messages_cpp/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_nodejs: kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
-
-.PHONY : nodelet_generate_messages_nodejs
-
-# fast build rule for target.
-nodelet_generate_messages_nodejs/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_nodejs.dir/build.make kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_nodejs.dir/build
-.PHONY : nodelet_generate_messages_nodejs/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/bond_generate_messages_py.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/bond_generate_messages_py.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_py: kobuki_bumper2pc/CMakeFiles/bond_generate_messages_py.dir/rule
-
-.PHONY : bond_generate_messages_py
-
-# fast build rule for target.
-bond_generate_messages_py/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/bond_generate_messages_py.dir/build.make kobuki_bumper2pc/CMakeFiles/bond_generate_messages_py.dir/build
-.PHONY : bond_generate_messages_py/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_eus.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_eus: kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-.PHONY : nodelet_generate_messages_eus
-
-# fast build rule for target.
-nodelet_generate_messages_eus/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_eus.dir/build.make kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_eus.dir/build
-.PHONY : nodelet_generate_messages_eus/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/bond_generate_messages_nodejs.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_nodejs: kobuki_bumper2pc/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-
-.PHONY : bond_generate_messages_nodejs
-
-# fast build rule for target.
-bond_generate_messages_nodejs/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/bond_generate_messages_nodejs.dir/build.make kobuki_bumper2pc/CMakeFiles/bond_generate_messages_nodejs.dir/build
-.PHONY : bond_generate_messages_nodejs/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_lisp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_lisp: kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-.PHONY : nodelet_generate_messages_lisp
-
-# fast build rule for target.
-nodelet_generate_messages_lisp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_lisp.dir/build
-.PHONY : nodelet_generate_messages_lisp/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_nodejs: kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/bond_generate_messages_eus.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/bond_generate_messages_eus.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_eus: kobuki_bumper2pc/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-.PHONY : bond_generate_messages_eus
-
-# fast build rule for target.
-bond_generate_messages_eus/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/bond_generate_messages_eus.dir/build.make kobuki_bumper2pc/CMakeFiles/bond_generate_messages_eus.dir/build
-.PHONY : bond_generate_messages_eus/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/bond_generate_messages_cpp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_cpp: kobuki_bumper2pc/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-.PHONY : bond_generate_messages_cpp
-
-# fast build rule for target.
-bond_generate_messages_cpp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/bond_generate_messages_cpp.dir/build.make kobuki_bumper2pc/CMakeFiles/bond_generate_messages_cpp.dir/build
-.PHONY : bond_generate_messages_cpp/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_py.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_py: kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-.PHONY : nodelet_generate_messages_py
-
-# fast build rule for target.
-nodelet_generate_messages_py/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_py.dir/build.make kobuki_bumper2pc/CMakeFiles/nodelet_generate_messages_py.dir/build
-.PHONY : nodelet_generate_messages_py/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/bond_generate_messages_lisp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_lisp: kobuki_bumper2pc/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-.PHONY : bond_generate_messages_lisp
-
-# fast build rule for target.
-bond_generate_messages_lisp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/bond_generate_messages_lisp.dir/build.make kobuki_bumper2pc/CMakeFiles/bond_generate_messages_lisp.dir/build
-.PHONY : bond_generate_messages_lisp/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-.PHONY : kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_eus: kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_eus
-
-# fast build rule for target.
-sensor_msgs_generate_messages_eus/fast:
-	cd /home/ubuntuber/ros_se/build && $(MAKE) -f kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make kobuki_bumper2pc/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-.PHONY : sensor_msgs_generate_messages_eus/fast
-
 src/kobuki_bumper2pc.o: src/kobuki_bumper2pc.cpp.o
 
 .PHONY : src/kobuki_bumper2pc.o
@@ -442,27 +217,12 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... test"
-	@echo "... kobuki_bumper2pc_nodelet"
-	@echo "... nodelet_generate_messages_cpp"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... nodelet_generate_messages_nodejs"
-	@echo "... bond_generate_messages_py"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... nodelet_generate_messages_eus"
-	@echo "... list_install_components"
-	@echo "... bond_generate_messages_nodejs"
-	@echo "... nodelet_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... test"
 	@echo "... install"
-	@echo "... bond_generate_messages_eus"
-	@echo "... bond_generate_messages_cpp"
-	@echo "... nodelet_generate_messages_py"
-	@echo "... bond_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... list_install_components"
+	@echo "... rebuild_cache"
+	@echo "... kobuki_bumper2pc_nodelet"
 	@echo "... src/kobuki_bumper2pc.o"
 	@echo "... src/kobuki_bumper2pc.i"
 	@echo "... src/kobuki_bumper2pc.s"
