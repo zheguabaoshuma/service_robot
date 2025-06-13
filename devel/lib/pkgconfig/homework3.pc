@@ -1,0 +1,8 @@
+prefix=/home/ubuntuber/ros_se/devel
+
+Name: homework3
+Description: Description of homework3
+Version: 0.0.0
+Cflags: -I/home/ubuntuber/ros_se/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime roscpp rospy std_msgs

@@ -28,7 +28,7 @@ class YOLOv11RealtimeDetector:
         self.target_lost = False  # 目标是否丢失
         self.running_state = False
         self.follow_thread = None
-        self.default_target = True
+        self.default_target = False
         self.image_pub = rospy.Publisher('/detection_result', Image, queue_size=10)
         rospy.loginfo("YOLOv11 Realtime Detector initialized.")
 
@@ -180,6 +180,7 @@ class YOLOv11RealtimeDetector:
         # 等待用户输入目标物体名称
         if self.default_target:
             self.target_object = input('Enter the name of the object to follow (or press Enter to skip): ')
+        else: rospy.sleep(2)
         if self.target_object:
             rospy.loginfo(f'Tracking object: {self.target_object}')
         # 开始寻找目标物体
